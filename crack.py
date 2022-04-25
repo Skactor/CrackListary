@@ -4,7 +4,7 @@ import string
 encryptKey = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ"
 
 
-def get_random_string(length):
+def generate_random_string(length):
     # choose from all lowercase letter
     letters = string.ascii_uppercase
     return "".join(random.choice(letters) for i in range(length))
@@ -42,4 +42,8 @@ def generate_license(email: str):
 
 if __name__ == "__main__":
     email = input("please input email: ")
-    print(generate_license(email))
+    print(
+        generate_random_string(160)
+        + generate_license(email)
+        + generate_random_string(20)
+    )
